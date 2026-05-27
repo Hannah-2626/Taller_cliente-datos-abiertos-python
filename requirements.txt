@@ -1,0 +1,2 @@
+# Librería externa necesaria
+requests
