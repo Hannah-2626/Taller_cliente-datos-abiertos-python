@@ -4,6 +4,9 @@ import json
 import csv
 from datetime import datetime
 
+# Crear carpeta para almacenar archivos
+os.makedirs("datos_paises", exist_ok=True)
+
 # SOLICITUDES WEB
 # Persona 2
 
