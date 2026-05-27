@@ -37,31 +37,19 @@ def generar_reporte(estadisticas):
 
 
 def main():
-
     print("Inicio del programa")
-
+    
     # Obtener datos desde la API
-
     datos = obtener_datos()
-
     # Guardar datos originales en JSON
-
     guardar_json(datos)
-
     # Procesar información relevante
-
     datos_limpios = procesar_datos(datos)
-
     # Guardar datos limpios en CSV
-
     guardar_csv(datos_limpios)
-
     # Generar estadísticas
-
     estadisticas = generar_estadisticas(datos_limpios)
-
     # Crear reporte final
-
     generar_reporte(estadisticas)
 
     print("Programa finalizado correctamente")
