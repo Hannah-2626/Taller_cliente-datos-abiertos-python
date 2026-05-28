@@ -18,7 +18,26 @@ def guardar_json(datos):
 # PROCESAMIENTO DE DATOS
 # Persona 3
 def procesar_datos(datos):
-    pass
+    datos_limpios=[]
+    for pais in datos:
+        # Nombre del país
+        nombre = pais.get("name",{}).get("common", "Desconocido")
+        # Capital 
+        capital = pais.get("capital", ["No disponible"])
+        capital = capital[0] if capital else "No disponible"
+        # Región 
+        region = pais.get("region", "No disponible")
+        # Población 
+        poblacion = pais.get("population", 0)
+        # Area
+        area = pais.get("area", 0)
+        # Diccionario limpio 
+        pais_limpio = {"nombre": nombre, "capital": capital, "region": region, "poblacion": poblacion, "area": area}
+        # Agregar a la lista 
+        datos_limpios.append(pais_limpio)
+    print("Datos porcesados correctamente")
+    return datos_limpios
+
 
 # EXPORTACIÓN CSV
 # Persona 4
