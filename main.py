@@ -10,10 +10,25 @@ os.makedirs("datos_paises", exist_ok=True)
 # SOLICITUDES WEB
 # Persona 2
 def obtener_datos():
-    pass
+    url = 'https://restcountries.com/v3.1/all?fields=name,capital,region,population,area,flags,languages,currencies,timezones,borders'
+    try:
+        respuesta = requests.get(url, timeout = 5)
+        respuesta.raise_for_status()
+        datos = respuesta.json()
+        return datos
+    except requests.exceptions.ConnectionError:
+        print('Error: No se pudo conectar a la URL.')
+    except requests.exceptions.Timeout:
+        print('Error: La solicitud tardó demasiado.')
+    except requests.exceptions.HTTPError as e:
+        print(f'Error HTTP: {e}')
+    except Exception as e:
+        print(f'Error inesperado: {e}')
 
 def guardar_json(datos):
-    pass
+    with open('datos_paises/paises.json', 'w', encoding = 'utf-8') as archivo:
+        json.dump(datos, archivo, ensure_ascii = False, indent = 2)
+    print(f'{len(datos)} países guardados')
 
 # PROCESAMIENTO DE DATOS
 # Persona 3
