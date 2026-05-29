@@ -50,7 +50,7 @@ def procesar_datos(datos):
         pais_limpio = {"nombre": nombre, "capital": capital, "region": region, "poblacion": poblacion, "area": area}
         # Agregar a la lista 
         datos_limpios.append(pais_limpio)
-    print("Datos porcesados correctamente")
+    print("Datos procesados correctamente")
     return datos_limpios
 
 
@@ -75,6 +75,9 @@ def main():
     
     # Obtener datos desde la API
     datos = obtener_datos()
+    if datos is None:
+        print("No se pudieron obtener los datos.")
+        return
     # Guardar datos originales en JSON
     guardar_json(datos)
     # Procesar información relevante
