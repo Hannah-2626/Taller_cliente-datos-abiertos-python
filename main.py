@@ -57,7 +57,25 @@ def procesar_datos(datos):
 # EXPORTACIÓN CSV
 # Persona 4
 def guardar_csv(datos_limpios):
-    pass
+    ruta = "paises.csv"
+    
+    try:
+        with open(ruta, mode="w", newline="", encoding="utf-8") as archivo:
+            # Definir nombres de columnas
+            campos = ["nombre", "capital", "region", "poblacion", "area"]
+            
+            writer = csv.DictWriter(archivo, fieldnames=campos)
+            
+            # Escribir encabezados
+            writer.writeheader()
+            
+            # Escribir filas
+            writer.writerows(datos_limpios)
+        
+        print(f"Archivo CSV generado correctamente en {ruta}")
+    
+    except Exception as e:
+        print(f"Error al guardar el CSV: {e}")
 
 # ESTADÍSTICAS
 # Persona 5
