@@ -57,7 +57,7 @@ def procesar_datos(datos):
 # EXPORTACIÓN CSV
 # Persona 4
 def guardar_csv(datos_limpios):
-    ruta = "paises.csv"
+    ruta = "datos_paises/paises.csv"
     
     try:
         with open(ruta, mode="w", newline="", encoding="utf-8") as archivo:
